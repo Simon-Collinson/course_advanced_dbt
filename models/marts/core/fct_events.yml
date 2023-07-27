@@ -1,6 +1,10 @@
 models:
-  - name: stg_bingeflix_events
-    description: This table contains information about the behavioral events.
+  - name: fct_events
+    description: This table contains information about behavioral events emitted by users.
+    meta:
+      priority: high
+      owner:
+        - simon
     columns:
       - name: session_id
         description: '{{ doc("session_id") }}'
