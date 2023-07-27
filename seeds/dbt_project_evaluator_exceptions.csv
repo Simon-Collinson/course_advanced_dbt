@@ -1,0 +1,3 @@
+fct_name,column_name,id_to_exclude,comment
+fct_model_directories,resource_name,dim_dates,Exclude dim_dates from the test coverage. This is not a 'real' dimensional table - it is only used as a ref for other models.
+fct_root_models,child,dim_dates,Exclude dim_dates from the test coverage. This is a table generated entirely by code - it is acceptable for it to have zero root models.
