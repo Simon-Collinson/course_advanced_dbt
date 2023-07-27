@@ -50,7 +50,7 @@ The country the user resides in
 
 ## Subscriptions
 
-This section contains documentation about individual subscriptions.
+This section contains documentation about individual subscriptions. Note that users can have more than one subscription.
 
 {% docs subscription_id %}
 The unique identifier of the individual subscription (not to be confused with the subscription plan).
