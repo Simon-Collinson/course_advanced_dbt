@@ -48,6 +48,14 @@ The state or region the user resides in (i.e. the state or province).
 The country the user resides in
 {% enddocs %}
 
+{% docs first_subscription_starts_at %}
+The date when the user's first subscription started.
+{% enddocs %}
+
+{% docs count_of_subscriptions %}
+The total number of subscriptions the user has or has had in the past.
+{% enddocs %}
+
 ## Subscriptions
 
 This section contains documentation about individual subscriptions. Note that users can have more than one subscription.

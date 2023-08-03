@@ -71,3 +71,13 @@ models:
         description: '{{ doc("country") }}'
         tests:
           - not_null
+
+      - name: first_subscription_starts_at
+        description: '{{ doc("first_subscription_starts_at") }}'
+        tests:
+          - not_null
+
+      - name: count_of_subscriptions
+        description: '{{ doc("count_of_subscriptions") }}'
+        tests:
+          - not_null
