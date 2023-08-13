@@ -20,7 +20,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  advanced_dbt:
+  course_advanced_dbt:
     +materialized: view
     +grants:
       select: ['transformer', 'reporter']
@@ -29,5 +29,45 @@ seeds:
   dbt_project_evaluator:
     dbt_project_evaluator_exceptions:
       +enabled: false
-
+  course_advanced_dbt: 
+    unit_testing:
+      +schema: unit_testing
+      +tags: unit_testing
+      testing_dim_dates: 
+        +column_types:
+          calendar_date: DATE
+          date_week: DATE
+          date_month: DATE
+          date_quarter: DATE
+          date_year: DATE
+          day_of_month: NUMBER(2,0)
+          year_num: NUMBER(4,0)
+          quarter_num: NUMBER(2,0)
+          month_num: NUMBER(2,0)
+      testing_dim_subscriptions:
+        +column_types:
+          subscription_id: NUMBER(38,0)
+          subscription_plan_id: NUMBER(38,0)
+          user_id: NUMBER(38,0)
+          starts_at: TIMESTAMP_NTZ(9)
+          ends_at: TIMESTAMP_NTZ(9)
+          plan_name: VARCHAR(16777216)
+          pricing: NUMBER(38,0)
+          billing_period: VARCHAR(16777216)
+      testing_fct_mrr:
+        +column_types:
+          surrogate_key: VARCHAR(16777216)
+          date_month: DATE
+          user_id: NUMBER(38,0)
+          subscription_id: NUMBER(38,0)
+          starts_at: TIMESTAMP_NTZ(9)
+          ends_at: TIMESTAMP_NTZ(9)
+          plan_name: VARCHAR(16777216)
+          mrr_amount: NUMBER(38,2)
+          mrr_change: NUMBER(38,2)
+          retained_mrr_amount: NUMBER(38,2)
+          previous_month_mrr_amount: NUMBER(38,2)
+          change_category: VARCHAR(12)
+          month_retained_number: NUMBER(9,0)
+          
 on-run-end: "{{ dbt_project_evaluator.print_dbt_project_evaluator_issues() }}"

@@ -1,6 +1,11 @@
 models:
   - name: fct_mrr
     description: This model contains calculations for the monthly recurring revenue generated per user and subscription for each month.
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('testing_fct_mrr')
+          tags: ['unit_testing'] # Tag is used to enable resource selection syntax: `dbt build --select fct_mrr --vars 'unit_testing: true'`
+    
     columns:
       - name: surrogate_key
         description: The surrogate key. This acts as a primary key for this model.

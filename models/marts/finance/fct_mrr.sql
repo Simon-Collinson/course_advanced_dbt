@@ -1,5 +1,9 @@
 -- This model is created following the dbt MRR playbook: https://www.getdbt.com/blog/modeling-subscription-revenue/
 
+-- The two switches below are used in unit testing, to switch between production and testing tables.
+{% set switch_dim_subscriptions = unit_testing_select_table(ref('dim_subscriptions'), ref('testing_dim_subscriptions')) %}
+{% set switch_dim_dates = unit_testing_select_table(ref('dim_dates'), ref('testing_dim_dates')) %}
+
 WITH
 
 -- Import CTEs
@@ -15,7 +19,7 @@ monthly_subscriptions AS (
         DATE(DATE_TRUNC('month', starts_at)) AS start_month,
         DATE(DATE_TRUNC('month', ends_at)) AS end_month
     FROM
-        {{ ref('dim_subscriptions') }}
+        {{ switch_dim_subscriptions }}
     WHERE
         billing_period = 'monthly'
 ),
@@ -25,7 +29,7 @@ months AS (
     SELECT
         calendar_date AS date_month
     FROM
-        {{ ref('dim_dates') }}
+        {{ switch_dim_dates }}
     WHERE
         day_of_month = 1
 ),
