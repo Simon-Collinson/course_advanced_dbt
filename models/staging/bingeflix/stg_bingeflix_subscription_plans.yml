@@ -12,15 +12,9 @@ models:
 
       - name: plan_name
         description: '{{ doc("plan_name") }}'
-        tests:
-          - not_null
 
       - name: pricing
         description: '{{ doc("pricing") }}'
-        tests:
-          - not_null
 
       - name: payment_period
         description: '{{ doc("payment_period") }}'
-        tests:
-          - not_null

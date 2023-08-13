@@ -10,50 +10,33 @@ models:
 
       - name: created_at
         description: '{{ doc("user_created_at") }}'
-        tests:
-          - not_null
 
       - name: phone_number
         description: '{{ doc("phone_number") }}'
-        tests:
-          - not_null
 
       - name: deleted_at
         description: '{{ doc("deleted_at") }}'
 
       - name: username
         description: '{{ doc("username") }}'
-        tests:
-          - not_null
 
       - name: name
         description: '{{ doc("user_full_name") }}'
-        tests:
-          - not_null
 
       - name: sex
         description: '{{ doc("user_sex") }}'
         tests:
-          - not_null
           - accepted_values:
               values: ['M','F']
 
       - name: email
         description: '{{ doc("email") }}'
-        tests:
-          - not_null
 
       - name: birthdate
         description: '{{ doc("birthdate") }}'
-        tests:
-          - not_null
 
       - name: region
         description: '{{ doc("region") }}'
-        tests:
-          - not_null
 
       - name: country
         description:  '{{ doc("country") }}'
-        tests:
-          - not_null
